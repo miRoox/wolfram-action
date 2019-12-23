@@ -11,7 +11,7 @@ jobs:
     - name: Run tests
       uses: ./
       with:
-        script: tests/run-tests.wl
+        script-file: tests/run-tests.wl
       env:
         WOLFRAM_ID: ${{ secrets.WolframID }}
         WOLFRAM_PASSWORD: ${{ secrets.WolframPW }}
