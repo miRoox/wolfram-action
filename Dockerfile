@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM arnoudbuzing/wolframengine:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
