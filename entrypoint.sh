@@ -21,4 +21,7 @@ if [ -z "$WOLFRAM_PASSWORD" ]; then
   error "Environment vaiable WOLFRAM_PASSWORD is missing."
 fi
 
-/usr/bin/wolframscript -username $WOLFRAM_ID -password $WOLFRAM_PASSWORD -file $script_file
+echo '$WOLFRAM_ID
+$WOLFRAM_PASSWORD' | /usr/bin/wolframscript
+
+/usr/bin/wolframscript -file $script_file
