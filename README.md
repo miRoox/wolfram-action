@@ -1,22 +1,12 @@
-# Hello world docker action
+# wolfram action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action run wolfram language code.
 
 ## Inputs
 
-### `who-to-greet`
+### `script-file`
 
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+**Required** The script file to run.
 
 ## Example usage
-
-uses: actions/hello-world-docker-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
 
