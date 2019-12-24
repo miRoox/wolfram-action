@@ -24,4 +24,4 @@ fi
 echo "$WOLFRAM_ID
 $WOLFRAM_PASSWORD" | /usr/bin/wolframscript
 
-/usr/bin/wolframscript -file $script_file
+/usr/bin/wolframscript -authenticate $WOLFRAM_ID $WOLFRAM_PASSWORD -file $script_file
