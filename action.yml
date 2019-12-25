@@ -12,4 +12,6 @@ runs:
   args:
     - ${{ inputs.file }}
     - ${{ inputs.args }}
-
+branding:
+  icon: 'code'
+  color: 'red'
