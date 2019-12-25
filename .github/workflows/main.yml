@@ -17,3 +17,11 @@ jobs:
       env:
         WOLFRAM_ID: ${{ secrets.WolframID }}
         WOLFRAM_PASS: ${{ secrets.WolframPW }}
+    - name: Test arguments
+      uses: ./
+      with:
+        file: tests/args-test.wl
+        args: 1 var=2
+      env:
+        WOLFRAM_ID: ${{ secrets.WolframID }}
+        WOLFRAM_PASS: ${{ secrets.WolframPW }}
