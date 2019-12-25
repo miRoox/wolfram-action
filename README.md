@@ -36,7 +36,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: Run Wolfram script
-      uses: miroox/wolfram-action@master
+      uses: miRoox/wolfram-action@master
       with:
         file: script.wl
       env:
