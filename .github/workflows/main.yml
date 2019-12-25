@@ -1,11 +1,13 @@
-on: [push, pull_request]
-
+name: Test Action
+on:
+  push:
+    path-ignore:
+    - README.md
+    - LICENSE
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Test Action
     steps:
-    # To use this repository's private action, you must check out the repository
     - name: Checkout
       uses: actions/checkout@v1
     - name: Run tests
