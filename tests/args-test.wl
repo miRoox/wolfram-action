@@ -1,7 +1,7 @@
 #!/usr/bin/env wolframscript
 
 
-Exit@If[$ScriptCommandLine==={"1","var=2"},
-  0,
-  Print["The actual commandline: ", $ScriptCommandLine];1
+If[$ScriptCommandLine[[2;;]]==={"1","var=2"},
+  Exit[0],
+  Print["The actual commandline: ", $ScriptCommandLine];Exit[1]
 ]
