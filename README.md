@@ -8,7 +8,7 @@ It runs in [a docker image](https://github.com/arnoudbuzing/wolfram-engine-docke
 
 ## Inputs
 
-### `script-file`
+### `file`
 
 **Required** The script file to run.
 

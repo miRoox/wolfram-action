@@ -1,12 +1,12 @@
 name: 'GitHub action for Wolfram language'
 description: 'GitHub action to run Wolfram language code'
 inputs:
-  script-file:
+  file:
     description: 'The Wolfram script file to run'
     required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.script-file }}
+    - ${{ inputs.file }}
 

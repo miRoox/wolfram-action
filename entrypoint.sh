@@ -10,18 +10,18 @@ error() {
 script_file="$1"
 
 if [ -z "$script_file" ]; then
-  error "Input 'script-file' is missing."
+  error "Input 'file' is missing."
 fi
 
 if [ -z "$WOLFRAM_ID" ]; then
   error "Environment vaiable WOLFRAM_ID is missing."
 fi
 
-if [ -z "$WOLFRAM_PASSWORD" ]; then
-  error "Environment vaiable WOLFRAM_PASSWORD is missing."
+if [ -z "$WOLFRAM_PASS" ]; then
+  error "Environment vaiable WOLFRAM_PASS is missing."
 fi
 
 echo "$WOLFRAM_ID
-$WOLFRAM_PASSWORD" | /usr/bin/wolframscript
+$WOLFRAM_PASS" | /usr/bin/wolframscript
 
-/usr/bin/wolframscript -authenticate $WOLFRAM_ID $WOLFRAM_PASSWORD -file $script_file
+/usr/bin/wolframscript -authenticate $WOLFRAM_ID $WOLFRAM_PASS -script $script_file
