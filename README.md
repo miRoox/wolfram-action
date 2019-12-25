@@ -12,6 +12,10 @@ It runs in [a docker image](https://github.com/arnoudbuzing/wolfram-engine-docke
 
 **Required** The script file to run.
 
+### `args`
+
+The extra arguments to be passed to the script.
+
 ## Authentication
 
 You need `WOLFRAM_ID` and `WOLFRAM_PASS` environment variables to activate the [Wolfram Engine](https://www.wolfram.com/engine/) and authenticate the [Wolfram Cloud](https://www.wolframcloud.com/).

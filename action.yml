@@ -4,9 +4,12 @@ inputs:
   file:
     description: 'The Wolfram script file to run'
     required: true
+  args:
+    description: 'The extra arguments to be passed to the script'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.file }}
+    - ${{ inputs.args }}
 
