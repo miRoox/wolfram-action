@@ -1,7 +1,7 @@
 name: Test Action
 on:
   push:
-    path-ignore:
+    paths-ignore:
     - README.md
     - LICENSE
 jobs:
