@@ -22,7 +22,8 @@ if [ -z "$WOLFRAM_PASS" ]; then
   error "Environment vaiable WOLFRAM_PASS is missing."
 fi
 
-/usr/bin/wolframscript -activate -authenticate $WOLFRAM_ID $WOLFRAM_PASS
+/usr/bin/wolframscript -authenticate $WOLFRAM_ID $WOLFRAM_PASS
+/usr/bin/wolframscript -activate
 
 if [ ! -f "$script_file" ]; then
   error "File '$script_file' cannot be found from the directory '$PWD'."
