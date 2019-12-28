@@ -18,7 +18,7 @@ The extra arguments to be passed to the script.
 
 ## Authentication
 
-You need `WOLFRAM_ID` and `WOLFRAM_PASS` environment variables to activate the [Wolfram Engine](https://www.wolfram.com/engine/) and authenticate the [Wolfram Cloud](https://www.wolframcloud.com/).
+You need `WOLFRAM_ID` and `WOLFRAM_PASS` environment variables to activate the [Wolfram Engine](https://www.wolfram.com/engine/) and authenticate the [Wolfram Cloud](https://www.wolframcloud.com/), see [Creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) for using encrypted secrets in your workflow.
 
 ### `WOLFRAM_ID`
 
