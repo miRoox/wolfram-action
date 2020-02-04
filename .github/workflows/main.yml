@@ -25,3 +25,15 @@ jobs:
       env:
         WOLFRAM_ID: ${{ secrets.WolframID }}
         WOLFRAM_PASS: ${{ secrets.WolframPW }}
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: System Benchmark
+      uses: ./
+      with:
+        file: tests/benchmark.wl
+      env:
+        WOLFRAM_ID: ${{ secrets.WolframID }}
+        WOLFRAM_PASS: ${{ secrets.WolframPW }}
