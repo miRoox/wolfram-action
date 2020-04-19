@@ -32,6 +32,14 @@ VerificationTest[
 ]
 
 VerificationTest[
+  $CloudConnected
+  ,
+  True
+  ,
+  TestID->"Cloud_Connected"
+]
+
+VerificationTest[
   cf1 = FunctionCompile@Function[{Typed[arg, "MachineInteger"]}, 
     If[EvenQ[arg], arg + 1, arg - 1]
   ];
