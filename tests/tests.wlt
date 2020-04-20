@@ -53,6 +53,7 @@ VerificationTest[
   TestID->"New_Compile"
 ]
 
+(*
 VerificationTest[
   GeneralUtilities`SetupTeardown[
     libext = GeneralUtilities`StringMatch[$OperatingSystem, 
@@ -72,6 +73,7 @@ VerificationTest[
   ,
   TestID->"New_Compile_Lib"
 ]
+ *)
 
 (*
 VerificationTest[
