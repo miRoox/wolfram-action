@@ -14,6 +14,11 @@ If[!TrueQ@$CloudConnected,
 
 $baseDir=DirectoryName[$InputFileName]
 
+Compiler`$CCompilerOptions = {
+  "ShellCommandFunction" -> EchoFunction["Command", Identity],
+  "ShellOutputFunction" -> EchoFunction["Output", Identity]
+};
+
 Module[{report, time, results, failIdx},
   report=TestReport[
     FileNameJoin[{$baseDir, "tests.wlt"}]
