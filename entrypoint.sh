@@ -29,4 +29,4 @@ if [ ! -f "$script_file" ]; then
   error "File '$script_file' cannot be found from the directory '$PWD'."
 fi
 
-/usr/bin/wolframscript -script $script_file $script_args
+/usr/bin/wolframscript -file $script_file $script_args
