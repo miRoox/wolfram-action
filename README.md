@@ -4,7 +4,7 @@
 
 GitHub action to run Wolfram language code.
 
-It runs in [a docker image](https://github.com/arnoudbuzing/wolfram-engine-docker) with a [Wolfram Engine](https://www.wolfram.com/engine/) installed.
+It runs in [a docker image](https://hub.docker.com/repository/docker/miroox/wolfram-engine-docker) with a [Wolfram Engine](https://www.wolfram.com/engine/) installed.
 
 ## Inputs
 
