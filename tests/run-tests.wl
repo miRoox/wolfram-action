@@ -1,14 +1,37 @@
 #!/usr/bin/env wolframscript
 
-Print["Running tests..."];
+Print["Wolfram Language Version: ", $Version];
+Print["Running tests...","\n"];
 
-getFailedTestsID[tr_TestReportObject]:=#["TestID"]& /@ Flatten[Values /@ Values@tr["TestsFailed"]]
-
-
-With[{tr=TestReport[FileNameJoin[{Directory[],"tests.wlt"}]]},
-  Exit@If[tr["TestsFailedCount"]===0,
-    Print["All tests passed!"];0,
-    Print["Tests failed!\nID: ",getFailedTestsID[tr]];1
-  ]
+If[FailureQ@Environment["WOLFRAM_ID"],
+  CloudConnect[],
+  CloudConnect[Environment["WOLFRAM_ID"], Environment["WOLFRAM_PASS"]]
+];
+If[!TrueQ@$CloudConnected,
+  Print["Cloud connection failed!"];
+  Exit[1]
 ]
 
+$baseDir=DirectoryName[$InputFileName]
+
+Module[{report, time, results, failIdx},
+  report=TestReport[
+    FileNameJoin[{$baseDir, "tests.wlt"}]
+  ];
+  time=report["TimeElapsed"];
+  results=report["TestResults"];
+  failIdx=report["TestsFailedIndices"];
+  Print["  ", Length[results], " tests run in ", TextString@time, "."];
+  If[TrueQ@report["AllTestsSucceeded"]
+    ,
+    Print["  All tests succeeded!"];
+    Exit[]
+    ,
+    Print["  ", Length[failIdx], " tests failed!"];
+    Do[
+      Print["  ", i, " | ", results[i]["Outcome"], " | ", results[i]["TestID"]],
+      {i, failIdx}
+    ];
+    Exit[1]
+  ]
+]
