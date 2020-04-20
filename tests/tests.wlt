@@ -75,7 +75,9 @@ VerificationTest[
 ]
 
 VerificationTest[
-  ResourceFunction["GitHubInstall"]["arnoudbuzing", "Prototypes"];
+  Import["https://raw.githubusercontent.com/kubapod/mpm/master/install.m"];
+  Needs["MPM`"];
+  MPM`MPMInstall["arnoudbuzing", "Prototypes", "AllowPrereleases"->True];
   Needs["Prototypes`"];
   Prototypes`PrimeCount[10^12]
   ,
