@@ -53,6 +53,26 @@ VerificationTest[
   TestID->"New_Compile"
 ]
 
+VerificationTest[
+  GeneralUtilities`SetupTeardown[
+    libext = GeneralUtilities`StringMatch[$OperatingSystem, 
+      "Windows", "dll", 
+      "MacOSX", "dylib", 
+      "Unix"|"Linux", "so"
+    ];
+    lib = FunctionCompileExportLibrary["function."<>libext,
+      Function[Typed[arg,"Real64"], Typed[KernelFunction[AiryAi], {"Real64"}->"Real64"][arg]]
+    ];
+    fun = LibraryFunctionLoad[lib],
+    fun[1.8],
+    LibraryFunctionUnload[fun]
+  ]
+  ,
+  AiryAi[1.8]
+  ,
+  TestID->"New_Compile_Lib"
+]
+
 (*
 VerificationTest[
   c = Compile[{{x}}, x^2+Sin[x^2], CompilationTarget -> "C"];
