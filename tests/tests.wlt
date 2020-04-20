@@ -53,6 +53,7 @@ VerificationTest[
   TestID->"New_Compile"
 ]
 
+(*
 VerificationTest[
   c = Compile[{{x}}, x^2+Sin[x^2], CompilationTarget -> "C"];
   c[Sqrt[Pi]]
@@ -63,6 +64,7 @@ VerificationTest[
   ,
   TestID->"C_Compile"
 ]
+ *)
 
 VerificationTest[
   ResourceFunction["GrayCode"][100]
