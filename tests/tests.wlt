@@ -75,13 +75,11 @@ VerificationTest[
 ]
 
 VerificationTest[
-  ResourceFunction["GitHubInstall"]["RuleBasedIntegration", "Rubi"];
-  Needs["Rubi`"];
-  Rubi`Int[(1 + 2*x)/(x*(2 + 3*x + 5*x^2)), {x, 1, 2}]
+  ResourceFunction["GitHubInstall"]["arnoudbuzing", "Prototypes"];
+  Needs["Prototypes`"];
+  Prototypes`PrimeCount[10^12]
   ,
-  Integrate[(1 + 2*x)/(x*(2 + 3*x + 5*x^2)), {x, 1, 2}]
-  ,
-  SameTest->TrueQ@*FullSimplify@*Equal
+  PrimePi[10^12]
   ,
   TestID->"Paclet_Accessibility"
 ]
