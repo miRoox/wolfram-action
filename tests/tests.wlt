@@ -40,13 +40,15 @@ VerificationTest[
 ]
 
 VerificationTest[
-  cf1 = FunctionCompile@Function[{Typed[arg, "MachineInteger"]}, 
-    If[EvenQ[arg], arg + 1, arg - 1]
-  ];
-  cf2 = FunctionCompile@Function[{Typed[fun, { "MachineInteger"} -> "MachineInteger"], Typed[lim, "MachineInteger"]},
-    Table[fun[i], {i, lim}]
-  ];
-  cf2[cf1, 10]
+  Block[{cf1, cf2},
+    cf1 = FunctionCompile@Function[{Typed[arg, "MachineInteger"]}, 
+      If[EvenQ[arg], arg + 1, arg - 1]
+    ];
+    cf2 = FunctionCompile@Function[{Typed[fun, { "MachineInteger"} -> "MachineInteger"], Typed[lim, "MachineInteger"]},
+      Table[fun[i], {i, lim}]
+    ];
+    cf2[cf1, 10]
+  ]
   ,
   {0, 3, 2, 5, 4, 7, 6, 9, 8, 11}
   ,
