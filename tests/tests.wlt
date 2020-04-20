@@ -40,6 +40,17 @@ VerificationTest[
 ]
 
 VerificationTest[
+  Block[{f1},
+    f1[n_] := Length[FactorInteger[(10^n - 1)/9]];
+    ParallelMap[f1, Range[50, 60]]
+  ]
+  ,
+  {10, 8, 9, 4, 12, 8, 12, 6, 8, 2, 20}
+  ,
+  TestID->"Parallel_Computing"
+]
+
+VerificationTest[
   Block[{cf1, cf2},
     cf1 = FunctionCompile@Function[{Typed[arg, "MachineInteger"]}, 
       If[EvenQ[arg], arg + 1, arg - 1]
