@@ -15,8 +15,8 @@ If[!TrueQ@$CloudConnected,
 $baseDir=DirectoryName[$InputFileName]
 
 Compiler`$CCompilerOptions = {
-  "ShellCommandFunction" -> EchoFunction["Command", Identity],
-  "ShellOutputFunction" -> EchoFunction["Output", Identity]
+  "ShellCommandFunction" -> EchoFunction["Command: ", Identity],
+  "ShellOutputFunction" -> EchoFunction["Output: ", Identity]
 };
 
 Module[{report, time, results, failIdx},
@@ -34,7 +34,7 @@ Module[{report, time, results, failIdx},
     ,
     Print["  ", Length[failIdx], " tests failed!"];
     Do[
-      Print["  ", i, " | ", results[i]["Outcome"], " | ", results[i]["TestID"]],
+      Print@TextString@Row[Values@results[i][{"TestIndex", "TestID", "Outcome", "ActualMessages", "ActualOutput"}], " | "],
       {i, failIdx}
     ];
     Exit[1]
