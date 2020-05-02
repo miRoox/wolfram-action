@@ -4,6 +4,8 @@ on:
     paths-ignore:
     - README.md
     - LICENSE
+  schedule:
+  - cron: 0 0 1 * *
 jobs:
   test:
     runs-on: ubuntu-latest
