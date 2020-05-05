@@ -3,3 +3,5 @@
 Needs["Benchmarking`"]
 
 Print@BenchmarkReport[]
+
+Exit[]
