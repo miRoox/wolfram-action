@@ -1,7 +1,5 @@
 #!/usr/bin/env wolframscript
 
-Print["Wolfram Language Version: ", $Version];
-
 If[FailureQ@Environment["WOLFRAM_ID"],
   CloudConnect[],
   CloudConnect[Environment["WOLFRAM_ID"], Environment["WOLFRAM_PASS"]]
@@ -19,8 +17,9 @@ Compiler`$CCompilerOptions = {
 };
 
 Needs["MUnit`"]
+Get["https://raw.githubusercontent.com/miRoox/CILogger-MUnit/master/CILogger/CILogger.wl"]
 
-If[MUnit`TestRun[FileNameJoin[{$baseDir, "tests.wlt"}], "Loggers" -> {MUnit`VerbosePrintLogger[]}],
+If[MUnit`TestRun[FileNameJoin[{$baseDir, "tests.wlt"}], "Loggers" :> {CILogger`CILogger[]}],
   Exit[],
   Exit[1]
 ]
