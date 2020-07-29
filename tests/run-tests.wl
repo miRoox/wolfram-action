@@ -1,7 +1,6 @@
 #!/usr/bin/env wolframscript
 
 Print["Wolfram Language Version: ", $Version];
-Print["Running tests...","\n"];
 
 If[FailureQ@Environment["WOLFRAM_ID"],
   CloudConnect[],
@@ -19,24 +18,9 @@ Compiler`$CCompilerOptions = {
   "ShellOutputFunction" -> EchoFunction["Output: ", Identity]
 };
 
-Module[{report, time, results, failIdx},
-  report=TestReport[
-    FileNameJoin[{$baseDir, "tests.wlt"}]
-  ];
-  time=report["TimeElapsed"];
-  results=report["TestResults"];
-  failIdx=report["TestsFailedIndices"];
-  Print["  ", Length[results], " tests run in ", TextString@time, "."];
-  If[TrueQ@report["AllTestsSucceeded"]
-    ,
-    Print["  All tests succeeded!"];
-    Exit[]
-    ,
-    Print["  ", Length[failIdx], " tests failed!"];
-    Do[
-      Print@TextString@Row[Values@results[i][{"TestIndex", "TestID", "Outcome", "ActualMessages", "ActualOutput"}], " | "],
-      {i, failIdx}
-    ];
-    Exit[1]
-  ]
+Needs["MUnit`"]
+
+If[MUnit`TestRun[FileNameJoin[{$baseDir, "tests.wlt"}], "Loggers" -> {MUnit`VerbosePrintLogger[]}],
+  Exit[],
+  Exit[1]
 ]
