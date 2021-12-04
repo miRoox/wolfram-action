@@ -2,6 +2,8 @@
 
 [![GitHub Actions Status](https://github.com/miRoox/wolfram-action/workflows/Test%20Action/badge.svg)](https://github.com/miRoox/wolfram-action/actions)
 
+**Deprecated, suggest to use the workflows based on the on-demand license entitlements, see details on [WolframResearch/WL-FunctionCompile-CI-Template](https://github.com/WolframResearch/WL-FunctionCompile-CI-Template).**
+
 GitHub action to run Wolfram language code.
 
 It runs in [a docker image](https://hub.docker.com/repository/docker/miroox/wolfram-engine-docker) with a [Wolfram Engine](https://www.wolfram.com/engine/) installed.
