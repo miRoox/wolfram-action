@@ -1,4 +1,4 @@
-FROM wolframresearch/wolframengine:latest
+FROM miroox/wolfram-engine-docker:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
